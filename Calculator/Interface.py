@@ -79,13 +79,11 @@ class Interface(tkinter.Tk):
         self.grid_columnconfigure(0, weight=1)
         self.resizable(True, False)
 
-    # Create a List of all characters inputted by the user.
     def create_expression(self, num):
         my_sum = Calculations()
         my_expression = my_sum.create_expression(num)
         self.labelVariable.set(my_expression)
 
-    # Calculate the Expression.
     def calculate(self):
         my_sum = Calculations()
         self.labelVariable.set(my_sum.display_sum_total())
