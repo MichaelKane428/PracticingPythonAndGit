@@ -17,46 +17,46 @@ class Interface(tkinter.Tk):
         self.number2 = tkinter.Button(self, text="2", command=lambda: self.create_expression(2))
         self.number2.grid(row=3, column=1)
 
-        self.number3 = tkinter.Button(self, text="3")
+        self.number3 = tkinter.Button(self, text="3", command=lambda: self.create_expression(3))
         self.number3.grid(row=3, column=2)
 
-        self.number4 = tkinter.Button(self, text="4")
+        self.number4 = tkinter.Button(self, text="4", command=lambda: self.create_expression(4))
         self.number4.grid(row=2, column=0)
 
-        self.number5 = tkinter.Button(self, text="5")
+        self.number5 = tkinter.Button(self, text="5", command=lambda: self.create_expression(5))
         self.number5.grid(row=2, column=1)
 
-        self.number6 = tkinter.Button(self, text="6")
+        self.number6 = tkinter.Button(self, text="6", command=lambda: self.create_expression(6))
         self.number6.grid(row=2, column=2)
 
-        self.number7 = tkinter.Button(self, text="7")
+        self.number7 = tkinter.Button(self, text="7", command=lambda: self.create_expression(7))
         self.number7.grid(row=1, column=0)
 
-        self.number8 = tkinter.Button(self, text="8")
+        self.number8 = tkinter.Button(self, text="8", command=lambda: self.create_expression(8))
         self.number8.grid(row=1, column=1)
 
-        self.number9 = tkinter.Button(self, text="9")
+        self.number9 = tkinter.Button(self, text="9", command=lambda: self.create_expression(9))
         self.number9.grid(row=1, column=2)
 
-        self.number0 = tkinter.Button(self, text="0")
+        self.number0 = tkinter.Button(self, text="0", command=lambda: self.create_expression(0))
         self.number0.grid(row=4, column=1)
 
-        self.period = tkinter.Button(self, text=".")
+        self.period = tkinter.Button(self, text=".", command=lambda: self.create_expression('.'))
         self.period.grid(row=4, column=2)
 
         self.equals = tkinter.Button(self, text="=", command=self.calculate)
         self.equals.grid(row=4, column=0)
 
-        self.divide = tkinter.Button(self, text="/")
+        self.divide = tkinter.Button(self, text="/", command=lambda: self.create_expression('/'))
         self.divide.grid(row=1, column=3)
 
-        self.multiply = tkinter.Button(self, text="*")
+        self.multiply = tkinter.Button(self, text="*", command=lambda: self.create_expression('*'))
         self.multiply.grid(row=2, column=3)
 
         self.plus = tkinter.Button(self, text="+", command=lambda: self.create_expression('+'))
         self.plus.grid(row=4, column=3)
 
-        self.minus = tkinter.Button(self, text="-")
+        self.minus = tkinter.Button(self, text="-", command=lambda: self.create_expression('-'))
         self.minus.grid(row=3, column=3)
 
         self.labelVariable = tkinter.StringVar()

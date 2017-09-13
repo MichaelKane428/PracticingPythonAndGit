@@ -7,9 +7,8 @@ class Calculations(object):
         return str(self.my_expression)
 
     def display_sum_total(self):
-        total = ''
-        total = total.join(str(self.my_expression))
-        total = eval(total)
+        temp_string = ""
+        temp_string = temp_string.join(repr(str(value)) for value in self.my_expression).replace('\'', '')
         self.my_expression.clear()
-        return total
+        return eval(temp_string)
 
