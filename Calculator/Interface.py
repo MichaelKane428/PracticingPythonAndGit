@@ -3,6 +3,18 @@ import tkinter
 
 
 class Interface(tkinter.Tk):
+    '''
+    main_widgets: Create Objects for the numbers 0-9,
+                  and create a Label to display information.
+                  Arrange these objects like a calculator e.g. the windows calculator.
+                  I am using the lambda function as a way of calling create_expression,
+                  and assigning the returned value to e.g. number1.
+                  The lambda function is still new to me and I have no good way of explaining how it's used.
+    create_expression: Pass the selected characters to the Calculations create_expression function,
+                       and display a list of selected characters on-screen.
+    calculate: When a user selects the = key call the calculate function in Calculations.
+               This function will display the sum of the evaluated expression.
+    '''
     def __init__(self, parent):
         tkinter.Tk.__init__(self, parent)
         self.parent = parent
@@ -67,11 +79,13 @@ class Interface(tkinter.Tk):
         self.grid_columnconfigure(0, weight=1)
         self.resizable(True, False)
 
+    # Create a List of all characters inputted by the user.
     def create_expression(self, num):
         my_sum = Calculations()
         my_expression = my_sum.create_expression(num)
         self.labelVariable.set(my_expression)
 
+    # Calculate the Expression.
     def calculate(self):
         my_sum = Calculations()
         self.labelVariable.set(my_sum.display_sum_total())
