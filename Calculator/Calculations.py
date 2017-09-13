@@ -1,16 +1,15 @@
 class Calculations(object):
-    def __init__(self, num1=0, num2=0):
-        self.num1 = num1
-        self.num2 = num2
+    def __init__(self, my_expression=[]):
+        self.my_expression = my_expression
 
-    def addition(self, num1, num2):
-        return num1 + num2
+    def create_expression(self, num):
+        self.my_expression.append(num)
+        return str(self.my_expression)
 
-    def subtraction(self, num1, num2):
-        return num1 - num2
+    def display_sum_total(self):
+        total = ''
+        total = total.join(str(self.my_expression))
+        total = eval(total)
+        self.my_expression.clear()
+        return total
 
-    def division(self, num1, num2):
-        return num1 / num2
-
-    def multiplication(self, num1, num2):
-        return num1 * num2
