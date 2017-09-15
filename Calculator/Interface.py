@@ -19,10 +19,13 @@ class Interface(tkinter.Tk):
         tkinter.Tk.__init__(self, parent)
         self.parent = parent
         self.main_widgets()
+        self.protocol("WM_DELETE_WINDOW", self.close)
 
     def main_widgets(self):
         self.grid()
+        self.my_sum = Calculations()
 
+        # Calculator Widgets
         self.number1 = tkinter.Button(self, text="1", command=lambda: self.create_expression(1))
         self.number1.grid(row=3, column=0, sticky='EW')
 
@@ -71,12 +74,11 @@ class Interface(tkinter.Tk):
         self.minus = tkinter.Button(self, text="-", command=lambda: self.create_expression('-'))
         self.minus.grid(row=3, column=3, sticky='EW')
 
-        self.clear = tkinter.Button(self, text="Clear")
+        self.clear = tkinter.Button(self, text="Clear", command=self.clear_list)
         self.clear.grid(row=5, column=0, columnspan=2, sticky='EW')
 
-        self.exit = tkinter.Button(self, text="Exit")
+        self.exit = tkinter.Button(self, text="Exit", command=self.close)
         self.exit.grid(row=5, column=2, columnspan=2, sticky='EW')
-
 
         self.labelVariable = tkinter.StringVar()
         self.label = tkinter.Label(self, textvariable=self.labelVariable)
@@ -96,15 +98,19 @@ class Interface(tkinter.Tk):
         self.resizable(True, False)
 
     def create_expression(self, num):
-        my_sum = Calculations()
-        my_expression = my_sum.create_expression(num)
+        my_expression = self.my_sum.create_expression(num)
         self.labelVariable.set(my_expression)
 
+    def clear_list(self):
+        cleared_list = self.my_sum.clear_list()
+        self.labelVariable.set(cleared_list)
+
     def calculate(self):
-        my_sum = Calculations()
-        self.labelVariable.set(my_sum.display_sum_total())
+        self.labelVariable.set(self.my_sum.display_sum_total())
+
+    def close(self):
+        self.destroy()
 
 
 if __name__ == '__main__':
-    app = Interface(None)
-    app.mainloop()
+    Interface(None).mainloop()

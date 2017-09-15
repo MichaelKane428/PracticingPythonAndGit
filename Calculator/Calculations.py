@@ -19,3 +19,6 @@ class Calculations(object):
         self.my_expression.clear()
         return eval(temp_string)
 
+    def clear_list(self):
+        self.my_expression.clear()
+        return u"Cleared"
