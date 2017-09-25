@@ -23,6 +23,7 @@ class Interface(tkinter.Tk):
 
     def main_widgets(self):
         self.grid()
+        # Create an Instance of the calculations class.
         self.my_sum = Calculations()
 
         # Calculator Widgets
@@ -97,20 +98,24 @@ class Interface(tkinter.Tk):
         self.grid_columnconfigure(3, weight=1)
         self.resizable(True, False)
 
+    # Create the Numeric Expression/Sum.
     def create_expression(self, num):
         my_expression = self.my_sum.create_expression(num)
         self.labelVariable.set(my_expression)
 
+    # Clear the Field.
     def clear_list(self):
         cleared_list = self.my_sum.clear_list()
         self.labelVariable.set(cleared_list)
 
+    # Calculate the expression.
     def calculate(self):
         self.labelVariable.set(self.my_sum.display_sum_total())
 
+    # Close the program.
     def close(self):
         self.destroy()
 
-
+# Program Start.
 if __name__ == '__main__':
     Interface(None).mainloop()

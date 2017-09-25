@@ -13,6 +13,9 @@ class Calculations(object):
         self.my_expression.append(num)
         return str(self.my_expression)
 
+    # The purpose of this function is too remove all single quotes from the current expression using repr,
+    # then we clear the expression, and evaluate then return the temp string,
+    # eval treats a string as a numeric expression.
     def display_sum_total(self):
         temp_string = ""
         temp_string = temp_string.join(repr(str(value)) for value in self.my_expression).replace('\'', '')
