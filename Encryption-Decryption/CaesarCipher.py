@@ -15,12 +15,18 @@ class CaesarCipher(object):
             print("file could not be found")
 
     def decrypt(self, key, message):
+        # https://inventwithpython.com/hacking/chapter7.html
         letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         decrypted_string = ""
         for char in message:
             if char in letters:
-                pass
-        decrypted_string = [chr(ord(char) - key) for char in message]
+                num = letters.find(char)
+                num = num - key
+                if num < 0:
+                    num = num + len(letters)
+                decrypted_string = decrypted_string + letters[num]
+            else:
+                decrypted_string = decrypted_string + char
         return str(decrypted_string)
 
 if __name__ == '__main__':
