@@ -5,8 +5,8 @@ class CaesarCipher(object):
 
     def user_input(self):
         try:
-            #filename = input("Please enter a filename, which contains your encrypted string.")
-            self.message = [line.rstrip('\n') for line in open('decrypt')]
+            filename = input("Please enter a filename, which contains your encrypted string.")
+            self.message = [line.rstrip('\n') for line in open(filename)]
             self.message = list("".join(self.message))
             self.key = int(input("Hello please enter a key."))
             decrypted_string = self.decrypt(self.key, self.message)
@@ -16,7 +16,7 @@ class CaesarCipher(object):
 
     def decrypt(self, key, message):
         # https://inventwithpython.com/hacking/chapter7.html
-        letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
         decrypted_string = ""
         for char in message:
             if char in letters:
